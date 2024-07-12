@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Weather App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/favi2.jpeg" type="image/jpeg">
+</head>
+<body class="index_body">
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">UltimateWeatherApp</a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">City Weather</a>
+                </li>
+                <li class="nav-item">
+                    <a href="maps.html" class="nav-link">Weather Maps</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="main_card">
+        <div class="search">
+            <input type="text" placeholder="Enter city name" spellcheck="false">
+            <button><img src="images/search.png" alt="search"></button>
+        </div>
+        <div class = "error">
+            <p>Invalid City Name</p>
+        </div>
+        <div class="weather">
+            <img src="" class="weather-icon">
+            <h1 class="temp"></h1>
+            <h2 class="city"></h2>
+            <p class="desc"></p>
+            <div class="details">
+                <div class="col">
+                    <img src="images/humidity.png">
+                    <div>
+                        <p class="humidity">0</p>
+                        <p>Humidity</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <img src="images/wind.png">
+                    <div>
+                        <p class="wind">0 km/h</p>
+                        <p>Wind Speed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1 class= "popular"> Popular Cities </h1>
+    <div class="cities">
+        <div class="cell">
+            <h1 class="NY">New York</h1>
+            <div class="cell_data">
+                <h2 class="NY_temp">20°C</h2>
+                <img src="images/clear.png" class="NY_icon">
+            </div>
+            <p class="NY_feels">Feels like 22°C</p>
+        </div>
+        <div class="cell">
+            <h1 class="Bng">Bangalore</h1>
+            <div class="cell_data">
+                <h2 class="Bng_temp">27°C</h2>
+                <img src="images/rain.png" class="Bng_icon">
+            </div>
+            <p class="Bng_feels">Fells like 24°C</p>
+        </div>
+        <div class="cell">
+            <h1 class="Ldn">London</h1>
+            <div class="cell_data">
+                <h2 class="Ldn_temp">17°C</h2>
+                <img src="images/clouds.png" class="Ldn_icon">
+            </div>
+            <p class="Ldn_feels">Fells like 17°C</p>
+        </div>
+        <div class="cell">
+            <h1 class="Syd">Sydney</h1>
+            <div class="cell_data">
+                <h2 class="Syd_temp">5°C</h2>
+                <img src="images/clear.png" class="Syd_icon">
+            </div>
+            <p class="Syd_feels">Fells like 6°C</p>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section about">
+                <h2>About Us</h2>
+                <p>Ultimate Weather App provides accurate and real-time weather updates. Our mission is to help people stay informed about the weather conditions in their area and around the world.</p>
+            </div>
+            <div class="footer-section contact">
+                <h2>Contact</h2>
+                <p>Email: csuchit02@gmail.com</p>
+                <p>Phone: +91 7353400330</p>
+                <p>Address: BITS Pilani , Pilani , Rajashtan</p>
+            </div>
+            <div class="footer-section social">
+                <h2>Follow Us</h2>
+                <div class="social-links">
+                    <a href="https://github.com/Sc02"><img src="images/github.webp" alt="github" class="gt"></a>
+                    <a href="#"><img src="images/x.webp" alt="X" class="X"></a>
+                    <a href="#"><img src="images/instagram.webp" alt="Instagram" class="insta"></a>
+                    <a href="https://www.linkedin.com/in/suchit-chebolu-279625231"><img src="images/linkedin.webp" alt="LinkedIn" class="linkedin"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Ultimate Weather App | Designed by Suchit Chebolu</p>
+        </div>
+    </footer>
+
+    <script>
+        const apiKey = "21c4412572e41a34b6b453499e2e7e48";
+        const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+
+        const searchBox = document.querySelector(".search input");
+        const searchBtn = document.querySelector(".search button");
+        const weatherIcon = document.querySelector(".weather-icon");
+
+        
+        async function getNYWeather() {
+            const NY_response = await fetch("https://api.openweathermap.org/data/2.5/weather?q=new+york&appid=21c4412572e41a34b6b453499e2e7e48&units=metric");
+            const NY = await NY_response.json();
+            document.querySelector(".NY_temp").innerHTML = Math.round(NY.main.temp) + "°C";
+            document.querySelector(".NY_feels").innerHTML = "Feels like: " + Math.round(NY.main.feels_like) + "°C";
+            const NY_weather_icon = document.querySelector(".NY_icon");
+            switch (NY.weather[0].main) {
+                    case 'Clouds':
+                        NY_weather_icon.src = "images/clouds.png";
+                        break;
+                    case 'Clear':
+                        NY_weather_icon.src = "images/clear.png";
+                        break;
+                    case 'Rain':
+                        NY_weather_icon.src = "images/rain.png";
+                        break;
+                    case 'Drizzle':
+                        NY_weather_icon.src = "images/drizzle.png";
+                        break;
+                    case 'Mist':
+                        NY_weather_icon.src = "images/mist.png";
+                        break;
+                    case 'Snow':
+                        NY_weather_icon.src = "images/snow.png";
+                        break;
+                }
+        }
+        getNYWeather();
+
+        async function getBngWeather() {
+            const Bng_response = await fetch("https://api.openweathermap.org/data/2.5/weather?q=bangalore&appid=21c4412572e41a34b6b453499e2e7e48&units=metric");
+            const Bng = await Bng_response.json();
+            document.querySelector(".Bng_temp").innerHTML = Math.round(Bng.main.temp) + "°C";
+            document.querySelector(".Bng_feels").innerHTML = "Feels like: " + Math.round(Bng.main.feels_like) + "°C";
+            const Bng_weather_icon = document.querySelector(".Bng_icon");
+            switch (Bng.weather[0].main) {
+                    case 'Clouds':
+                        Bng_weather_icon.src = "images/clouds.png";
+                        break;
+                    case 'Clear':
+                        Bng_weather_icon.src = "images/clear.png";
+                        break;
+                    case 'Rain':
+                        Bng_weather_icon.src = "images/rain.png";
+                        break;
+                    case 'Drizzle':
+                        Bng_weather_icon.src = "images/drizzle.png";
+                        break;
+                    case 'Mist':
+                        Bng_weather_icon.src = "images/mist.png";
+                        break;
+                    case 'Snow':
+                        Bng_weather_icon.src = "images/snow.png";
+                        break;
+                }
+        }
+        getBngWeather();
+
+        async function getLdnWeather() {
+            const Ldn_response = await fetch("https://api.openweathermap.org/data/2.5/weather?q=london&appid=21c4412572e41a34b6b453499e2e7e48&units=metric");
+            const Ldn = await Ldn_response.json();
+            document.querySelector(".Ldn_temp").innerHTML = Math.round(Ldn.main.temp) + "°C";
+            document.querySelector(".Ldn_feels").innerHTML = "Feels like: " + Math.round(Ldn.main.feels_like) + "°C";
+            const Ldn_weather_icon = document.querySelector(".Ldn_icon");
+            switch (Ldn.weather[0].main) {
+                    case 'Clouds':
+                        Ldn_weather_icon.src = "images/clouds.png";
+                        break;
+                    case 'Clear':
+                        Ldn_weather_icon.src = "images/clear.png";
+                        break;
+                    case 'Rain':
+                        Ldn_weather_icon.src = "images/rain.png";
+                        break;
+                    case 'Drizzle':
+                        Ldn_weather_icon.src = "images/drizzle.png";
+                        break;
+                    case 'Mist':
+                        Ldn_weather_icon.src = "images/mist.png";
+                        break;
+                    case 'Snow':
+                        Ldn_weather_icon.src = "images/snow.png";
+                        break;
+                }
+        }
+        getLdnWeather();
+
+        async function getSydWeather() {
+            const Syd_response = await fetch("https://api.openweathermap.org/data/2.5/weather?q=sydney&appid=21c4412572e41a34b6b453499e2e7e48&units=metric");
+            const Syd = await Syd_response.json();
+            document.querySelector(".Syd_temp").innerHTML = Math.round(Syd.main.temp) + "°C";
+            document.querySelector(".Syd_feels").innerHTML = "Feels like: " + Math.round(Syd.main.feels_like) + "°C";
+            const Syd_weather_icon = document.querySelector(".Syd_icon");
+            switch (Syd.weather[0].main) {
+                    case 'Clouds':
+                        Syd_weather_icon.src = "images/clouds.png";
+                        break;
+                    case 'Clear':
+                        Syd_weather_icon.src = "images/clear.png";
+                        break;
+                    case 'Rain':
+                        Syd_weather_icon.src = "images/rain.png";
+                        break;
+                    case 'Drizzle':
+                        Syd_weather_icon.src = "images/drizzle.png";
+                        break;
+                    case 'Mist':
+                        Syd_weather_icon.src = "images/mist.png";
+                        break;
+                    case 'Snow':
+                        Syd_weather_icon.src = "images/snow.png";
+                        break;
+                }
+        }
+        getSydWeather();
+        
+
+        async function checkWeather(city) {
+            const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
+            const data = await response.json();
+
+            if (data.cod === 200) { // Check if the response is successful
+                document.querySelector(".city").innerHTML = data.name;
+                document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
+                document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
+                document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
+                document.querySelector(".desc").innerHTML = data.weather[0].description.toUpperCase();
+
+                switch (data.weather[0].main) {
+                    case 'Clouds':
+                        weatherIcon.src = "images/clouds.png";
+                        break;
+                    case 'Clear':
+                        weatherIcon.src = "images/clear.png";
+                        break;
+                    case 'Rain':
+                        weatherIcon.src = "images/rain.png";
+                        break;
+                    case 'Drizzle':
+                        weatherIcon.src = "images/drizzle.png";
+                        break;
+                    case 'Mist':
+                        weatherIcon.src = "images/mist.png";
+                        break;
+                    case 'Snow':
+                        weatherIcon.src = "images/snow.png";
+                        break;
+                }
+
+                document.querySelector(".weather").style.display = "block";
+                document.querySelector(".error").style.display = "none";
+            } else {
+                document.querySelector(".error").style.display = "block";
+                document.querySelector(".weather").style.display = "none";
+            }
+        }
+
+        searchBtn.addEventListener("click", () => {
+            const city = searchBox.value;
+            if (city) {
+                checkWeather(city);
+            }
+        });
+    </script>
+</body>
+</html>

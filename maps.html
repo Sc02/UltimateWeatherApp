@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ultimate Weather App</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="icon" href="images/favi2.jpeg" type="image/jpeg">
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="#" class="nav-logo">UltimateWeatherApp</a>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">City Weather</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="maps.html" class="nav-link">Weather Maps</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <p class="welcome_text">
+            Welcome to <br> WEATHER MAPS <br> 
+        </p>
+        <p class="welcome2"> 
+            by the UltimateWeatherApp team
+        </p>
+        <p class="intro_text">
+            Here are some of the maps you can check out:
+        </p>
+        <div class="maps_list">
+            <div class="map_cell">
+                <button class="clouds_btn">
+                    Clouds
+                </button>
+            </div>
+            <div class="map_cell">
+                <button class="temp_btn"> 
+                    Temperature
+                </button>
+            </div>
+            <div class="map_cell">
+                <button class="wind_btn">
+                    Wind_speed
+                </button>
+            </div>
+            <div class="map_cell">
+                <button class="pressure_btn">
+                    Pressure
+                </button>
+            </div>
+        </div>
+        <div class="chosen_map">
+            <img src="" class="map-icon">
+            <img src ="" class="map-legend">
+        </div>
+        <footer>
+            <div class="footer-container">
+                <div class="footer-section about">
+                    <h2>About Us</h2>
+                    <p>Ultimate Weather App provides accurate and real-time weather updates. Our mission is to help people stay informed about the weather conditions in their area and around the world.</p>
+                </div>
+                <div class="footer-section contact">
+                    <h2>Contact</h2>
+                    <p>Email: csuchit02@gmail.com</p>
+                    <p>Phone: +91 7353400330</p>
+                    <p>Address: BITS Pilani , Pilani , Rajashtan</p>
+                </div>
+                <div class="footer-section social">
+                    <h2>Follow Us</h2>
+                    <div class="social-links">
+                        <a href="https://github.com/Sc02"><img src="images/github.webp" alt="github" class="gt"></a>
+                        <a href="#"><img src="images/x.webp" alt="X" class="X"></a>
+                        <a href="#"><img src="images/instagram.webp" alt="Instagram" class="insta"></a>
+                        <a href="https://www.linkedin.com/in/suchit-chebolu-279625231"><img src="images/linkedin.webp" alt="LinkedIn" class="linkedin"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Ultimate Weather App | Designed by Suchit Chebolu</p>
+            </div>
+        </footer>
+        <script>
+            const apiKey = "21c4412572e41a34b6b453499e2e7e48";
+            async function checkWeather(layer) {
+                const response = await fetch(mapsUrl + layer +`/0/0/0.png?` + `&appid=${apiKey}`);
+                const data = await response.json();
+            }
+
+            const mapIcon = document.querySelector(".map-icon");
+            const mapLegned = document.querySelector(".map-legend");
+
+            const cloudsBtn = document.querySelector(".clouds_btn");
+            const tempBtn = document.querySelector(".temp_btn");
+            const windBtn = document.querySelector(".wind_btn");
+            const pressureBtn = document.querySelector(".pressure_btn");
+
+
+            cloudsBtn.addEventListener("click", () => {
+                mapIcon.src="https://tile.openweathermap.org/map/clouds_new/0/0/0.png?"+`appid=${apiKey}`;
+                mapLegned.src = "images/clouds_legend.png";
+            });
+
+            tempBtn.addEventListener("click", () => {
+                mapIcon.src="https://tile.openweathermap.org/map/temp_new/0/0/0.png?"+`appid=${apiKey}`;
+                mapLegned.src = "images/temp_legend.png";
+            });
+
+            windBtn.addEventListener("click", () => {
+                mapIcon.src="https://tile.openweathermap.org/map/wind_new/0/0/0.png?"+`appid=${apiKey}`;
+                mapLegned.src = "images/wind_legend.png";
+            });
+
+            pressureBtn.addEventListener("click", () => {
+                mapIcon.src="https://tile.openweathermap.org/map/pressure_new/0/0/0.png?"+`appid=${apiKey}`;
+                mapLegned.src = "images/pressure_legend.png";
+            });
+
+        </script>
+    </body>
+</html>

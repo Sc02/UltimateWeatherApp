@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ultimate Weather App</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="images/favi2.jpeg" type="image/jpeg">
+    <link rel="icon" href="favi2.jpeg" type="image/jpeg">
 </head>
 <body class="index_body">
     <nav class="navbar">
@@ -23,7 +23,7 @@
     <div class="main_card">
         <div class="search">
             <input type="text" placeholder="Enter city name" spellcheck="false">
-            <button><img src="images/search.png" alt="search"></button>
+            <button><img src="search.png" alt="search"></button>
         </div>
         <div class = "error">
             <p>Invalid City Name</p>
@@ -35,14 +35,14 @@
             <p class="desc"></p>
             <div class="details">
                 <div class="col">
-                    <img src="images/humidity.png">
+                    <img src="humidity.png">
                     <div>
                         <p class="humidity">0</p>
                         <p>Humidity</p>
                     </div>
                 </div>
                 <div class="col">
-                    <img src="images/wind.png">
+                    <img src="wind.png">
                     <div>
                         <p class="wind">0 km/h</p>
                         <p>Wind Speed</p>
@@ -57,7 +57,7 @@
             <h1 class="NY">New York</h1>
             <div class="cell_data">
                 <h2 class="NY_temp">20°C</h2>
-                <img src="images/clear.png" class="NY_icon">
+                <img src="clear.png" class="NY_icon">
             </div>
             <p class="NY_feels">Feels like 22°C</p>
         </div>
@@ -65,7 +65,7 @@
             <h1 class="Bng">Bangalore</h1>
             <div class="cell_data">
                 <h2 class="Bng_temp">27°C</h2>
-                <img src="images/rain.png" class="Bng_icon">
+                <img src="rain.png" class="Bng_icon">
             </div>
             <p class="Bng_feels">Fells like 24°C</p>
         </div>
@@ -73,7 +73,7 @@
             <h1 class="Ldn">London</h1>
             <div class="cell_data">
                 <h2 class="Ldn_temp">17°C</h2>
-                <img src="images/clouds.png" class="Ldn_icon">
+                <img src="clouds.png" class="Ldn_icon">
             </div>
             <p class="Ldn_feels">Fells like 17°C</p>
         </div>
@@ -81,7 +81,7 @@
             <h1 class="Syd">Sydney</h1>
             <div class="cell_data">
                 <h2 class="Syd_temp">5°C</h2>
-                <img src="images/clear.png" class="Syd_icon">
+                <img src="clear.png" class="Syd_icon">
             </div>
             <p class="Syd_feels">Fells like 6°C</p>
         </div>
@@ -102,10 +102,10 @@
             <div class="footer-section social">
                 <h2>Follow Us</h2>
                 <div class="social-links">
-                    <a href="https://github.com/Sc02"><img src="images/github.webp" alt="github" class="gt"></a>
-                    <a href="#"><img src="images/x.webp" alt="X" class="X"></a>
-                    <a href="#"><img src="images/instagram.webp" alt="Instagram" class="insta"></a>
-                    <a href="https://www.linkedin.com/in/suchit-chebolu-279625231"><img src="images/linkedin.webp" alt="LinkedIn" class="linkedin"></a>
+                    <a href="https://github.com/Sc02"><img src="github.webp" alt="github" class="gt"></a>
+                    <a href="#"><img src="x.webp" alt="X" class="X"></a>
+                    <a href="#"><img src="instagram.webp" alt="Instagram" class="insta"></a>
+                    <a href="https://www.linkedin.com/in/suchit-chebolu-279625231"><img src="linkedin.webp" alt="LinkedIn" class="linkedin"></a>
                 </div>
             </div>
         </div>
@@ -131,22 +131,22 @@
             const NY_weather_icon = document.querySelector(".NY_icon");
             switch (NY.weather[0].main) {
                     case 'Clouds':
-                        NY_weather_icon.src = "images/clouds.png";
+                        NY_weather_icon.src = "clouds.png";
                         break;
                     case 'Clear':
-                        NY_weather_icon.src = "images/clear.png";
+                        NY_weather_icon.src = "clear.png";
                         break;
                     case 'Rain':
-                        NY_weather_icon.src = "images/rain.png";
+                        NY_weather_icon.src = "rain.png";
                         break;
                     case 'Drizzle':
-                        NY_weather_icon.src = "images/drizzle.png";
+                        NY_weather_icon.src = "drizzle.png";
                         break;
                     case 'Mist':
-                        NY_weather_icon.src = "images/mist.png";
+                        NY_weather_icon.src = "mist.png";
                         break;
                     case 'Snow':
-                        NY_weather_icon.src = "images/snow.png";
+                        NY_weather_icon.src = "snow.png";
                         break;
                 }
         }
@@ -160,22 +160,22 @@
             const Bng_weather_icon = document.querySelector(".Bng_icon");
             switch (Bng.weather[0].main) {
                     case 'Clouds':
-                        Bng_weather_icon.src = "images/clouds.png";
+                        Bng_weather_icon.src = "clouds.png";
                         break;
                     case 'Clear':
-                        Bng_weather_icon.src = "images/clear.png";
+                        Bng_weather_icon.src = "clear.png";
                         break;
                     case 'Rain':
-                        Bng_weather_icon.src = "images/rain.png";
+                        Bng_weather_icon.src = "rain.png";
                         break;
                     case 'Drizzle':
-                        Bng_weather_icon.src = "images/drizzle.png";
+                        Bng_weather_icon.src = "drizzle.png";
                         break;
                     case 'Mist':
-                        Bng_weather_icon.src = "images/mist.png";
+                        Bng_weather_icon.src = "mist.png";
                         break;
                     case 'Snow':
-                        Bng_weather_icon.src = "images/snow.png";
+                        Bng_weather_icon.src = "snow.png";
                         break;
                 }
         }
@@ -189,22 +189,22 @@
             const Ldn_weather_icon = document.querySelector(".Ldn_icon");
             switch (Ldn.weather[0].main) {
                     case 'Clouds':
-                        Ldn_weather_icon.src = "images/clouds.png";
+                        Ldn_weather_icon.src = "clouds.png";
                         break;
                     case 'Clear':
-                        Ldn_weather_icon.src = "images/clear.png";
+                        Ldn_weather_icon.src = "clear.png";
                         break;
                     case 'Rain':
-                        Ldn_weather_icon.src = "images/rain.png";
+                        Ldn_weather_icon.src = "rain.png";
                         break;
                     case 'Drizzle':
-                        Ldn_weather_icon.src = "images/drizzle.png";
+                        Ldn_weather_icon.src = "drizzle.png";
                         break;
                     case 'Mist':
-                        Ldn_weather_icon.src = "images/mist.png";
+                        Ldn_weather_icon.src = "mist.png";
                         break;
                     case 'Snow':
-                        Ldn_weather_icon.src = "images/snow.png";
+                        Ldn_weather_icon.src = "snow.png";
                         break;
                 }
         }
@@ -218,22 +218,22 @@
             const Syd_weather_icon = document.querySelector(".Syd_icon");
             switch (Syd.weather[0].main) {
                     case 'Clouds':
-                        Syd_weather_icon.src = "images/clouds.png";
+                        Syd_weather_icon.src = "clouds.png";
                         break;
                     case 'Clear':
-                        Syd_weather_icon.src = "images/clear.png";
+                        Syd_weather_icon.src = "clear.png";
                         break;
                     case 'Rain':
-                        Syd_weather_icon.src = "images/rain.png";
+                        Syd_weather_icon.src = "rain.png";
                         break;
                     case 'Drizzle':
-                        Syd_weather_icon.src = "images/drizzle.png";
+                        Syd_weather_icon.src = "drizzle.png";
                         break;
                     case 'Mist':
-                        Syd_weather_icon.src = "images/mist.png";
+                        Syd_weather_icon.src = "mist.png";
                         break;
                     case 'Snow':
-                        Syd_weather_icon.src = "images/snow.png";
+                        Syd_weather_icon.src = "snow.png";
                         break;
                 }
         }
@@ -253,22 +253,22 @@
 
                 switch (data.weather[0].main) {
                     case 'Clouds':
-                        weatherIcon.src = "images/clouds.png";
+                        weatherIcon.src = "clouds.png";
                         break;
                     case 'Clear':
-                        weatherIcon.src = "images/clear.png";
+                        weatherIcon.src = "clear.png";
                         break;
                     case 'Rain':
-                        weatherIcon.src = "images/rain.png";
+                        weatherIcon.src = "rain.png";
                         break;
                     case 'Drizzle':
-                        weatherIcon.src = "images/drizzle.png";
+                        weatherIcon.src = "drizzle.png";
                         break;
                     case 'Mist':
-                        weatherIcon.src = "images/mist.png";
+                        weatherIcon.src = "mist.png";
                         break;
                     case 'Snow':
-                        weatherIcon.src = "images/snow.png";
+                        weatherIcon.src = "snow.png";
                         break;
                 }
 
